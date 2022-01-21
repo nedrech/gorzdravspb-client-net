@@ -12,6 +12,7 @@ public class District
     ///     Имя района.
     /// </summary>
     [JsonPropertyName("name")]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public DistrictName Name { get; set; }
 
     /// <summary>

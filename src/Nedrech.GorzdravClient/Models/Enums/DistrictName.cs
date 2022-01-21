@@ -1,5 +1,8 @@
 ﻿namespace Nedrech.GorzdravClient.Models.Enums;
 
+/// <summary>
+///     Перечисляемый тип со всеми районами города.
+/// </summary>
 public enum DistrictName : byte
 {
     Адмиралтейский = 1,
@@ -20,4 +23,4 @@ public enum DistrictName : byte
     Пушкинский,
     Фрунзенский,
     Центральный
-};
+}

@@ -1,10 +1,8 @@
-﻿using Nedrech.GorzdravClient.Models;
+﻿namespace Nedrech.GorzdravClient.Requests.Shared;
 
-namespace Nedrech.GorzdravClient.Requests.Shared;
-
-public class GetDistricts : SharedRequestBase<IEnumerable<District>>
+public class GetDistricts : SharedRequestBase
 {
-    protected GetDistricts()
+    public GetDistricts()
         : base("districts", HttpMethod.Get)
     {
     }

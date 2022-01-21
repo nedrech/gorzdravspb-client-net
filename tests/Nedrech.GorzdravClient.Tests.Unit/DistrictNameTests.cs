@@ -7,13 +7,13 @@ namespace Nedrech.GorzdravClient.Tests.Unit;
 public class DistrictNameTests
 {
     [Test]
-    public void Enumeration_Must_Start_With_One()
+    public void Id_Must_Start_With_One()
     {
-        byte digit = 1;
-        foreach (var districtNumber in (byte[]) Enum.GetValues(typeof(DistrictName)))
+        byte digitId = 1;
+        foreach (var districtId in (byte[]) Enum.GetValues(typeof(DistrictName)))
         {
-            Assert.AreEqual(digit, districtNumber);
-            digit++;
+            Assert.AreEqual(digitId, districtId);
+            digitId++;
         }
     }
 }

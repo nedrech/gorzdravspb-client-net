@@ -1,6 +1,6 @@
 ﻿namespace Nedrech.GorzdravClient.Requests.Schedule;
 
-public class ScheduleRequestBase<TResult> : RequestBase<TResult>
+public class ScheduleRequestBase : RequestBase
 {
     protected ScheduleRequestBase(string methodName) : this(methodName, HttpMethod.Get)
     {

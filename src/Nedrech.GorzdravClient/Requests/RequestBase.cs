@@ -8,17 +8,8 @@ namespace Nedrech.GorzdravClient.Requests;
 /// <summary>
 ///     Описывает запрос к Api сервиса.
 /// </summary>
-/// <typeparam name="TResult">Тип результата, в котором будет возвращен ответ.</typeparam>
-public class RequestBase<TResult> : IRequest<TResult>
+public class RequestBase : IRequest
 {
-    /// <inheritdoc />
-    [JsonPropertyName("method")]
-    public string MethodName { get; }
-    
-    /// <inheritdoc />
-    [JsonIgnore]
-    public HttpMethod Method { get; }
-
     /// <summary>
     ///     Создает новый инстанс запроса.
     /// </summary>
@@ -29,6 +20,14 @@ public class RequestBase<TResult> : IRequest<TResult>
         MethodName = methodName;
         Method = method;
     }
+
+    /// <inheritdoc />
+    [JsonPropertyName("method")]
+    public string MethodName { get; }
+
+    /// <inheritdoc />
+    [JsonIgnore]
+    public HttpMethod Method { get; }
 
     /// <inheritdoc />
     public HttpContent ToHttpContent()

@@ -1,15 +1,34 @@
-﻿namespace Nedrech.GorzdravClient;
+﻿using System.Net.Http.Json;
+using Nedrech.GorzdravClient.Exceptions;
+using Nedrech.GorzdravClient.Models;
+using Nedrech.GorzdravClient.Requests.Abstractions;
+using Nedrech.GorzdravClient.Requests.Shared;
+
+namespace Nedrech.GorzdravClient;
 
 /// <summary>
 ///     Клиент для обращение к Gorzdrav API.
 /// </summary>
 public class GorzdravClient
 {
-    private const string BaseGorzdravURL = "https://gorzdrav.spb.ru";
-    private const string BaseGorzdravApiURN = "/_api/api/v2/";
-        
+    private const string BaseGorzdravUrl = "https://gorzdrav.spb.ru";
+    private const string BaseGorzdravApiUrn = "_api/api/v2";
+    private readonly string _baseUri;
+
     private readonly HttpClient _httpClient;
-    private readonly Uri _baseUri;
+
+    /// <summary>
+    ///     Создает новый инстанс <see cref="GorzdravClient" />.
+    /// </summary>
+    /// <param name="httpClient">
+    ///     Кастомный <see cref="HttpClient" />.
+    /// </param>
+    public GorzdravClient(HttpClient? httpClient = null)
+    {
+        _httpClient = httpClient ?? new HttpClient();
+
+        _baseUri = $"{BaseGorzdravUrl}/{BaseGorzdravApiUrn}";
+    }
 
     /// <summary>
     ///     Время ожидания ответа для запроса.
@@ -21,16 +40,68 @@ public class GorzdravClient
     }
 
     /// <summary>
-    ///     Создает новый инстанс <see cref="GorzdravClient"/>.
+    ///     Метод для отправки запроса.
     /// </summary>
-    /// <param name="httpClient">
-    ///     Кастомный <see cref="HttpClient"/>.
-    /// </param>
-    public GorzdravClient(HttpClient? httpClient = null)
+    /// <param name="request">Запрос <see cref="IRequest" />.</param>
+    /// <param name="cancellationToken">Токен отмены действия <see cref="CancellationToken" />.</param>
+    /// <typeparam name="TResult">Результат, в котором ошидает ответ.</typeparam>
+    /// <returns>Результат типа <see cref="TResult" /></returns>
+    /// <exception cref="ApiRequestException">Выбрасывается при ошибке на стороне сервиса.</exception>
+    public async Task<TResult> MakeRequestAsync<TResult>(IRequest request,
+        CancellationToken cancellationToken = default)
     {
-        
-        
-        _httpClient = httpClient ?? new HttpClient();
+        var uri = $"{_baseUri}/{request.MethodName}";
+
+        var httpRequest = new HttpRequestMessage(request.Method, uri)
+        {
+            Content = request.ToHttpContent()
+        };
+
+        HttpResponseMessage httpResponse;
+        try
+        {
+            httpResponse = await _httpClient.SendAsync(httpRequest, cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (TaskCanceledException e)
+        {
+            if (cancellationToken.IsCancellationRequested)
+                throw;
+
+            throw new ApiRequestException("Request timed out.", e);
+        }
+
+        httpResponse.EnsureSuccessStatusCode();
+
+        var apiResponse =
+            await httpResponse.Content.ReadFromJsonAsync<ApiResponse<TResult>>(cancellationToken: cancellationToken)
+            ?? new ApiResponse<TResult>
+            {
+                Success = false,
+                Message = "No response received."
+            };
+
+        if (!apiResponse.Success)
+            throw new ApiRequestException(apiResponse.Message!, apiResponse.ErrorCode);
+
+        if (apiResponse.Result == null)
+            throw new ApiRequestException("Response result is empty.");
+
+        return apiResponse.Result!;
     }
-    
+
+    /// <summary>
+    ///     Метод запроса информации о районах.
+    /// </summary>
+    /// <param name="cancellationToken">Токен отмены действия.</param>
+    /// <returns><see cref="IEnumerable{T}" /> перечисление с информацией о районах.</returns>
+    public Task<ICollection<District>> GetDistrictsAsync(CancellationToken cancellationToken = default)
+    {
+        return MakeRequestAsync<ICollection<District>>(new GetDistricts(), cancellationToken);
+    }
+
+    public Task<ICollection<Clinic>> GetClinicsAsync(CancellationToken cancellationToken = default)
+    {
+        return MakeRequestAsync<ICollection<Clinic>>(new GetClinics(), cancellationToken);
+    }
 }
