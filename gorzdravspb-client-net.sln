@@ -1,0 +1,45 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A0220BD3-C79E-4EC2-82B3-9B4B93D68E69}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8991A922-7214-4FC9-B3DD-38E59864650A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{5D37E0E1-7DF7-460E-A870-14606D46C85E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "samples\ConsoleApp\ConsoleApp.csproj", "{8075461D-8BCE-4488-9184-F453C7B3695A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nedrech.GorzdravClient", "src\Nedrech.GorzdravClient\Nedrech.GorzdravClient.csproj", "{38F4BD5C-B776-40BE-B52B-F14B0ED68FF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nedrech.GorzdravClient.Tests.Unit", "test\Nedrech.GorzdravClient.Tests.Unit\Nedrech.GorzdravClient.Tests.Unit.csproj", "{1E2D8B7B-0F4D-40E2-BDB9-71604446442F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nedrech.GorzdravClient.Tests.Integration", "test\Nedrech.GorzdravClient.Tests.Integration\Nedrech.GorzdravClient.Tests.Integration.csproj", "{81C28C4D-F073-4A8F-ABAC-C854A167C570}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8075461D-8BCE-4488-9184-F453C7B3695A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8075461D-8BCE-4488-9184-F453C7B3695A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8075461D-8BCE-4488-9184-F453C7B3695A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8075461D-8BCE-4488-9184-F453C7B3695A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38F4BD5C-B776-40BE-B52B-F14B0ED68FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38F4BD5C-B776-40BE-B52B-F14B0ED68FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38F4BD5C-B776-40BE-B52B-F14B0ED68FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38F4BD5C-B776-40BE-B52B-F14B0ED68FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E2D8B7B-0F4D-40E2-BDB9-71604446442F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E2D8B7B-0F4D-40E2-BDB9-71604446442F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E2D8B7B-0F4D-40E2-BDB9-71604446442F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E2D8B7B-0F4D-40E2-BDB9-71604446442F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C28C4D-F073-4A8F-ABAC-C854A167C570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C28C4D-F073-4A8F-ABAC-C854A167C570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C28C4D-F073-4A8F-ABAC-C854A167C570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C28C4D-F073-4A8F-ABAC-C854A167C570}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8075461D-8BCE-4488-9184-F453C7B3695A} = {5D37E0E1-7DF7-460E-A870-14606D46C85E}
+		{38F4BD5C-B776-40BE-B52B-F14B0ED68FF3} = {A0220BD3-C79E-4EC2-82B3-9B4B93D68E69}
+		{1E2D8B7B-0F4D-40E2-BDB9-71604446442F} = {8991A922-7214-4FC9-B3DD-38E59864650A}
+		{81C28C4D-F073-4A8F-ABAC-C854A167C570} = {8991A922-7214-4FC9-B3DD-38E59864650A}
+	EndGlobalSection
+EndGlobal
