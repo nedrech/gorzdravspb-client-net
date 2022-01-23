@@ -8,7 +8,9 @@ var api = new GorzdravClient(); // инициализация клиента
 var clinics = await api.GetClinicsAsync(); // получение коллекции всех клиник 
 
 var centralClinics = clinics
-    .Where(x => x.DistrictName == DistrictName.Адмиралтейский); // LINQ-фильтрация по району
-
+    .Where(x => x.DistrictName == DistrictName.Адмиралтейский); // фильтрация
+// по району
+Console.WriteLine("Clinics in the central district:");
 foreach (var clinic in centralClinics)
-    Console.WriteLine($"[{clinic.Id}]: {clinic.ShortName}"); // вывод в виде "[1]: clinic short name"
+    Console.WriteLine($"[{clinic.Id}]: {clinic.ShortName}"); // вывод в виде:
+// "[1]: clinic short name
