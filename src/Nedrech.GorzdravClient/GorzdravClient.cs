@@ -6,7 +6,7 @@ using Nedrech.GorzdravClient.Requests;
 namespace Nedrech.GorzdravClient;
 
 /// <summary>
-///     Клиент для обращение к Gorzdrav API.
+///     Клиент для обращения к Gorzdrav API.
 /// </summary>
 public class GorzdravClient
 {
