@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Nedrech.GorzdravClient.Entities;
 using Nedrech.GorzdravClient.Exceptions;
-using Nedrech.GorzdravClient.Models;
 using Nedrech.GorzdravClient.Requests;
 using NUnit.Framework;
 

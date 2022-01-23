@@ -1,20 +1,18 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Nedrech.GorzdravClient.Models;
+namespace Nedrech.GorzdravClient.Entities;
 
-/// <summary>
-///     Информация о враче.
-/// </summary>
-public class Doctor
+public class Specialty
 {
     /// <summary>
-    ///     Идентификатор врача.
+    ///     Идентификатор специальности.
     /// </summary>
     [JsonPropertyName("id")]
-    public string Id { get; set; } = null!;
+    [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+    public int Id { get; set; }
 
     /// <summary>
-    ///     Имя врача.
+    ///     Название специальности.
     /// </summary>
     [JsonPropertyName("name")]
     public string Name { get; set; } = null!;
@@ -22,14 +20,11 @@ public class Doctor
     /// <summary>
     ///     Количество свободных номерков.
     /// </summary>
-    [JsonPropertyName("freeParticipantCount")]
+    /// <remarks>
+    ///     Используется вместо countFreeTicket из Api, т.к. имеет более реальный показатель.
+    /// </remarks>
+    [JsonPropertyName("countFreeParticipant")]
     public ushort FreeTicketCount { get; set; }
-
-    /// <summary>
-    ///     Номер участков.
-    /// </summary>
-    [JsonPropertyName("ariaNumber")]
-    public string? AriaNumber { get; set; }
 
     /// <summary>
     ///     Дата и время самого позднего номерка из доступных.

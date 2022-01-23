@@ -1,4 +1,4 @@
-﻿namespace Nedrech.GorzdravClient.Models.Enums;
+﻿namespace Nedrech.GorzdravClient.Entities.Enums;
 
 /// <summary>
 ///     Перечисляемый тип со всеми районами города.

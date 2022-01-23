@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
-using Nedrech.GorzdravClient.Models.Enums;
+using Nedrech.GorzdravClient.Entities.Enums;
 
-namespace Nedrech.GorzdravClient.Models;
+namespace Nedrech.GorzdravClient.Entities;
 
 /// <summary>
 ///     Информация о районе.

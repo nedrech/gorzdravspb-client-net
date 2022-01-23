@@ -1,5 +1,5 @@
 ﻿using System;
-using Nedrech.GorzdravClient.Models.Enums;
+using Nedrech.GorzdravClient.Entities.Enums;
 using NUnit.Framework;
 
 namespace Nedrech.GorzdravClient.Tests.Unit;

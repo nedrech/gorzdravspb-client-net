@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Nedrech.GorzdravClient.Models;
+namespace Nedrech.GorzdravClient.Entities;
 
 /// <summary>
 ///     Ответ от API сервиса.

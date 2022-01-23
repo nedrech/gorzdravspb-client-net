@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using Nedrech.GorzdravClient;
-using Nedrech.GorzdravClient.Models.Enums;
+using Nedrech.GorzdravClient.Entities.Enums;
 
 var api = new GorzdravClient(); // инициализация клиента
 
