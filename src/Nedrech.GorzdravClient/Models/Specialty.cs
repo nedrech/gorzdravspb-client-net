@@ -8,7 +8,8 @@ public class Specialty
     ///     Идентификатор специальности.
     /// </summary>
     [JsonPropertyName("id")]
-    public string Id { get; set; } = null!;
+    [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+    public int Id { get; set; }
 
     /// <summary>
     ///     Название специальности.

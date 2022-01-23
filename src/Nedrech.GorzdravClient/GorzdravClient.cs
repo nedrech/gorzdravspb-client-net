@@ -98,7 +98,7 @@ public class GorzdravClient
         return MakeRequestAsync<ICollection<Clinic>>(new GetClinics(), cancellationToken);
     }
 
-    public Task<ICollection<Specialty>> GetSpecialtiesAsync(string clinicId,
+    public Task<ICollection<Specialty>> GetSpecialtiesAsync(int clinicId,
         CancellationToken cancellationToken = default)
     {
         return MakeRequestAsync<ICollection<Specialty>>(new GetSpecialties(clinicId), cancellationToken);
