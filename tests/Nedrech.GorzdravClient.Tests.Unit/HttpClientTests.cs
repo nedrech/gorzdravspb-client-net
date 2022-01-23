@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Nedrech.GorzdravClient.Exceptions;
 using Nedrech.GorzdravClient.Models;
-using Nedrech.GorzdravClient.Requests.Shared;
+using Nedrech.GorzdravClient.Requests;
 using NUnit.Framework;
 
 namespace Nedrech.GorzdravClient.Tests.Unit;

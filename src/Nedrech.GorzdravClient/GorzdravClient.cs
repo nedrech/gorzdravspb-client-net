@@ -2,8 +2,6 @@
 using Nedrech.GorzdravClient.Exceptions;
 using Nedrech.GorzdravClient.Models;
 using Nedrech.GorzdravClient.Requests;
-using Nedrech.GorzdravClient.Requests.Schedule.Clinic;
-using Nedrech.GorzdravClient.Requests.Shared;
 
 namespace Nedrech.GorzdravClient;
 
