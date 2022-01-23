@@ -24,7 +24,7 @@ public class Specialty
     ///     Используется вместо countFreeTicket из Api, т.к. имеет более реальный показатель.
     /// </remarks>
     [JsonPropertyName("countFreeParticipant")]
-    public ushort FreeTicketsCount { get; set; }
+    public ushort FreeTicketCount { get; set; }
 
     /// <summary>
     ///     Дата и время самого позднего номерка из доступных.
