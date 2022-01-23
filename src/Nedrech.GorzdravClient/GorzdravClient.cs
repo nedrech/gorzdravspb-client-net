@@ -109,4 +109,10 @@ public class GorzdravClient
     {
         return MakeRequestAsync<ICollection<Doctor>>(new GetDoctors(clinicId, specialityId), cancellationToken);
     }
+
+    public Task<ICollection<Appointment>> GetAppointmentsAsync(ushort clinicId, string doctorId,
+        CancellationToken cancellationToken = default)
+    {
+        return MakeRequestAsync<ICollection<Appointment>>(new GetAppointments(clinicId, doctorId), cancellationToken);
+    }
 }
