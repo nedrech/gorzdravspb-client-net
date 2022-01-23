@@ -1,14 +1,13 @@
 ﻿using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Nedrech.GorzdravClient.Requests.Abstractions;
 
 namespace Nedrech.GorzdravClient.Requests;
 
 /// <summary>
 ///     Описывает запрос к Api сервиса.
 /// </summary>
-public class RequestBase : IRequest
+public class RequestBase
 {
     /// <summary>
     ///     Создает новый инстанс запроса.
@@ -21,15 +20,22 @@ public class RequestBase : IRequest
         Method = method;
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    ///     Имя метода API.
+    /// </summary>
     [JsonPropertyName("method")]
     public string MethodName { get; }
 
-    /// <inheritdoc />
+    /// <summary>
+    ///     HTTP метод запроса.
+    /// </summary>
     [JsonIgnore]
     public HttpMethod Method { get; }
 
-    /// <inheritdoc />
+    /// <summary>
+    ///     Генерирует <see cref="HttpContent" /> запроса.
+    /// </summary>
+    /// <returns><see cref="HttpContent" /> запроса.</returns>
     public HttpContent ToHttpContent()
     {
         var payload = JsonSerializer.Serialize(this);

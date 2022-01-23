@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Json;
 using Nedrech.GorzdravClient.Exceptions;
 using Nedrech.GorzdravClient.Models;
-using Nedrech.GorzdravClient.Requests.Abstractions;
+using Nedrech.GorzdravClient.Requests;
 using Nedrech.GorzdravClient.Requests.Shared;
 
 namespace Nedrech.GorzdravClient;
@@ -42,12 +42,12 @@ public class GorzdravClient
     /// <summary>
     ///     Метод для отправки запроса.
     /// </summary>
-    /// <param name="request">Запрос <see cref="IRequest" />.</param>
+    /// <param name="request">Запрос <see cref="RequestBase" />.</param>
     /// <param name="cancellationToken">Токен отмены действия <see cref="CancellationToken" />.</param>
     /// <typeparam name="TResult">Результат, в котором ошидает ответ.</typeparam>
     /// <returns>Результат типа <see cref="TResult" /></returns>
     /// <exception cref="ApiRequestException">Выбрасывается при ошибке на стороне сервиса.</exception>
-    public async Task<TResult> MakeRequestAsync<TResult>(IRequest request,
+    public async Task<TResult> MakeRequestAsync<TResult>(RequestBase request,
         CancellationToken cancellationToken = default)
     {
         var uri = $"{_baseUri}/{request.MethodName}";
