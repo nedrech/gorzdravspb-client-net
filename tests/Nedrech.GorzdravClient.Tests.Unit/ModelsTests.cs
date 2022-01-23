@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace Nedrech.GorzdravClient.Tests.Unit;
 
-public class DistrictNameTests
+public class ModelsTests
 {
     [Test]
     public void Id_Must_Start_With_One()
