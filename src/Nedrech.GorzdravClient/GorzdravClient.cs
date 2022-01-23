@@ -2,6 +2,7 @@
 using Nedrech.GorzdravClient.Exceptions;
 using Nedrech.GorzdravClient.Models;
 using Nedrech.GorzdravClient.Requests;
+using Nedrech.GorzdravClient.Requests.Schedule.Clinic;
 using Nedrech.GorzdravClient.Requests.Shared;
 
 namespace Nedrech.GorzdravClient;
@@ -45,8 +46,9 @@ public class GorzdravClient
     /// <param name="request">Запрос <see cref="RequestBase" />.</param>
     /// <param name="cancellationToken">Токен отмены действия <see cref="CancellationToken" />.</param>
     /// <typeparam name="TResult">Результат, в котором ошидает ответ.</typeparam>
-    /// <returns>Результат типа <see cref="TResult" /></returns>
-    /// <exception cref="ApiRequestException">Выбрасывается при ошибке на стороне сервиса.</exception>
+    /// <returns>Результат типа <see cref="TResult"./></returns>
+    /// <exception cref="HttpRequestException"></exception>
+    /// <exception cref="ApiRequestException"></exception>
     public async Task<TResult> MakeRequestAsync<TResult>(RequestBase request,
         CancellationToken cancellationToken = default)
     {
@@ -75,17 +77,10 @@ public class GorzdravClient
 
         var apiResponse =
             await httpResponse.Content.ReadFromJsonAsync<ApiResponse<TResult>>(cancellationToken: cancellationToken)
-            ?? new ApiResponse<TResult>
-            {
-                Success = false,
-                Message = "No response received."
-            };
+            ?? throw new ApiRequestException("An empty response was received.");
 
         if (!apiResponse.Success)
             throw new ApiRequestException(apiResponse.Message!, apiResponse.ErrorCode);
-
-        if (apiResponse.Result == null)
-            throw new ApiRequestException("Response result is empty.");
 
         return apiResponse.Result!;
     }
@@ -103,5 +98,11 @@ public class GorzdravClient
     public Task<ICollection<Clinic>> GetClinicsAsync(CancellationToken cancellationToken = default)
     {
         return MakeRequestAsync<ICollection<Clinic>>(new GetClinics(), cancellationToken);
+    }
+
+    public Task<ICollection<Specialty>> GetSpecialtiesAsync(string clinicId,
+        CancellationToken cancellationToken = default)
+    {
+        return MakeRequestAsync<ICollection<Specialty>>(new GetSpecialties(clinicId), cancellationToken);
     }
 }
