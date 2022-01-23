@@ -44,7 +44,7 @@ public class GorzdravClient
     /// <param name="request">Запрос <see cref="RequestBase" />.</param>
     /// <param name="cancellationToken">Токен отмены действия <see cref="CancellationToken" />.</param>
     /// <typeparam name="TResult">Результат, в котором ошидает ответ.</typeparam>
-    /// <returns>Результат типа <see cref="TResult"./></returns>
+    /// <returns>Результат типа <see cref="TResult"/>.</returns>
     /// <exception cref="HttpRequestException"></exception>
     /// <exception cref="ApiRequestException"></exception>
     public async Task<TResult> MakeRequestAsync<TResult>(RequestBase request,
