@@ -1,5 +1,5 @@
 ﻿# Gorzdrav SPb API Unofficial Client for .NET
-Неофициальная библиотека для взаимодействия взаимодействия с API сервиса.
+Неофициальная библиотека для взаимодействия с API сервиса.
 ## Установка
 NuGet (скоро)
 ## Использование
@@ -12,10 +12,12 @@ var api = new GorzdravClient(); // инициализация клиента
 var clinics = await api.GetClinicsAsync(); // получение коллекции всех клиник 
 
 var centralClinics = clinics
-    .Where(x => x.DistrictName == DistrictName.Адмиралтейский); // LINQ-фильтрация по району
+    .Where(x => x.DistrictName == DistrictName.Адмиралтейский); // фильтрация
+                                                                // по району
     
 foreach(var clinic in centralClinics)
-    Console.WriteLine($"[{clinic.Id}]: {clinic.ShortName}"); // вывод в виде "[1]: clinic short name"
+    Console.WriteLine($"[{clinic.Id}]: {clinic.ShortName}"); // вывод в виде:
+                                                             // "[1]: clinic short name"
 ```
 ## Уже реализовано или будет реализовано
 Библиотека будет включать/включает в себя методы для следующих операций:
