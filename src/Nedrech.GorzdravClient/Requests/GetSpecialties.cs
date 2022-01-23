@@ -3,7 +3,7 @@
 public class GetSpecialties : RequestBase
 {
     public GetSpecialties(string clinicId)
-        : base($"schedule/{clinicId}/specialties", HttpMethod.Get)
+        : base($"schedule/lpu/{clinicId}/specialties", HttpMethod.Get)
     {
     }
 }
