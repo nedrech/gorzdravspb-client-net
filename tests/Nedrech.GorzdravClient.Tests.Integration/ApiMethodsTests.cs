@@ -88,7 +88,9 @@ public class ApiMethodsTests
     [Test]
     public async Task Should_Give_Out_Appointments()
     {
-        var appointments = await ApiClient.GetAppointmentsAsync(1, "1124");
+        var appointments = await ApiClient.GetAppointmentsAsync(0, "1f");
+
+        Assert.IsNotEmpty(appointments);
 
         foreach (var appointment in appointments)
         {
