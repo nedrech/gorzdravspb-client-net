@@ -27,9 +27,11 @@ public class ApiMethodsTests
     }
 
     [Test]
-    public async Task It_Should_Give_Out_Specialties()
+    public async Task Should_Give_Out_Specialties()
     {
         var specialties = await ApiClient.GetSpecialtiesAsync(1);
+
+        Assert.IsNotEmpty(specialties);
 
         foreach (var specialty in specialties)
         {
@@ -39,11 +41,10 @@ public class ApiMethodsTests
     }
 
     [Test]
-    public async Task It_Should_Give_Out_Districts()
+    public async Task Should_Give_Out_Districts()
     {
         var districts = await ApiClient.GetDistrictsAsync();
 
-        Assert.NotNull(districts);
         Assert.IsNotEmpty(districts);
 
         foreach (var district in districts)
@@ -54,11 +55,10 @@ public class ApiMethodsTests
     }
 
     [Test]
-    public async Task It_Should_Give_Out_Clinics()
+    public async Task Should_Give_Out_Clinics()
     {
         var clinics = await ApiClient.GetClinicsAsync();
 
-        Assert.NotNull(clinics);
         Assert.IsNotEmpty(clinics);
 
         foreach (var clinic in clinics)
@@ -68,6 +68,20 @@ public class ApiMethodsTests
             Assert.False(string.IsNullOrEmpty(clinic.FullName));
             Assert.False(string.IsNullOrEmpty(clinic.ShortName));
             Assert.False(string.IsNullOrEmpty(clinic.Phone));
+        }
+    }
+
+    [Test]
+    public async Task Should_Give_Out_Doctors()
+    {
+        var doctors = await ApiClient.GetDoctorsAsync(1, 92137086);
+
+        Assert.IsNotEmpty(doctors);
+
+        foreach (var doctor in doctors)
+        {
+            Assert.NotNull(doctor.Id);
+            Assert.NotNull(doctor.Name);
         }
     }
 }

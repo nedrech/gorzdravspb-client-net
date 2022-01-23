@@ -103,4 +103,10 @@ public class GorzdravClient
     {
         return MakeRequestAsync<ICollection<Specialty>>(new GetSpecialties(clinicId), cancellationToken);
     }
+
+    public Task<ICollection<Doctor>> GetDoctorsAsync(ushort clinicId, int specialityId,
+        CancellationToken cancellationToken = default)
+    {
+        return MakeRequestAsync<ICollection<Doctor>>(new GetDoctors(clinicId, specialityId), cancellationToken);
+    }
 }
