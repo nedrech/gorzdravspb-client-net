@@ -11,6 +11,7 @@
         <NeutralLanguage>ru-RU</NeutralLanguage>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <RepositoryType>GIT</RepositoryType>
+        <PackageLicenseUrl>https://unlicense.org/</PackageLicenseUrl>
     </PropertyGroup>
 
 </Project>
