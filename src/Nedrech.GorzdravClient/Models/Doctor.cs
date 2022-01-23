@@ -22,7 +22,7 @@ public class Doctor
     /// <summary>
     ///     Количество свободных номерков.
     /// </summary>
-    [JsonPropertyName("freeTicketCount")]
+    [JsonPropertyName("freeParticipantCount")]
     public ushort FreeTicketCount { get; set; }
 
     /// <summary>
