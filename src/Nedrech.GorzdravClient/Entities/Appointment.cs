@@ -29,7 +29,7 @@ public class Appointment
     ///     Адрес ЛПУ.
     /// </summary>
     [JsonPropertyName("address")]
-    public string Address { get; set; }
+    public string? Address { get; set; } = null!;
 
     /// <summary>
     ///     Номер кабинета.
