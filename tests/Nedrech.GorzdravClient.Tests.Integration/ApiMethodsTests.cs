@@ -84,4 +84,17 @@ public class ApiMethodsTests
             Assert.NotNull(doctor.Name);
         }
     }
+
+    [Test]
+    public async Task Should_Give_Out_Appointments()
+    {
+        var appointments = await ApiClient.GetAppointmentsAsync(1, "1124");
+
+        foreach (var appointment in appointments)
+        {
+            Assert.NotNull(appointment.Id);
+            Assert.That(appointment.VisitStart != default);
+            Assert.That(appointment.VisitEnd != default);
+        }
+    }
 }
