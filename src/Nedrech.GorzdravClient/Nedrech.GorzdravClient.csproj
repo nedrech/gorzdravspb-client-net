@@ -4,6 +4,13 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Version>1.0.0</Version>
+        <Authors>nedrech</Authors>
+        <Description>Неофициальная библиотека для взаимодействия с API сервиса.</Description>
+        <RepositoryUrl>https://github.com/nedrech/gorzdravspb-client-net</RepositoryUrl>
+        <NeutralLanguage>ru-RU</NeutralLanguage>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <RepositoryType>GIT</RepositoryType>
     </PropertyGroup>
 
 </Project>
