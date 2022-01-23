@@ -7,7 +7,7 @@ namespace Nedrech.GorzdravClient.Requests;
 /// <summary>
 ///     Описывает запрос к Api сервиса.
 /// </summary>
-public class RequestBase
+public abstract class RequestBase
 {
     /// <summary>
     ///     Создает новый инстанс запроса.
