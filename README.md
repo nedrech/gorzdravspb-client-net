@@ -39,4 +39,3 @@ foreach(var clinic in centralClinics)
 ## Помощь проекту
 - Issues - предложения по добавлению нового функционала
 - Pull requests
-- no test
