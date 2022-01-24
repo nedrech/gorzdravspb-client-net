@@ -1,7 +1,7 @@
 ﻿# Gorzdrav SPb API Unofficial Client for .NET
 Неофициальная библиотека для взаимодействия с API сервиса.
 ## Установка
-![Nuget](https://img.shields.io/nuget/v/Nedrech.GorzdravClient?style=for-the-badge)
+[![Nuget](https://img.shields.io/nuget/v/Nedrech.GorzdravClient?style=for-the-badge)](https://www.nuget.org/packages/Nedrech.GorzdravClient/)
 ## Использование
 ```c#
 using Nedrech.GorzdravClient;
