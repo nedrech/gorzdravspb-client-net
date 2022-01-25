@@ -1,5 +1,4 @@
 ﻿using System.Net.Http.Json;
-using System.Security.Authentication;
 using Nedrech.GorzdravClient.Entities;
 using Nedrech.GorzdravClient.Exceptions;
 using Nedrech.GorzdravClient.Requests;
@@ -25,12 +24,7 @@ public class GorzdravClient
     /// </param>
     public GorzdravClient(HttpClient? httpClient = null)
     {
-        var handler = new HttpClientHandler
-        {
-            SslProtocols = SslProtocols.Tls
-        };
-        _httpClient = httpClient ?? new HttpClient(handler);
-
+        _httpClient = httpClient ?? new HttpClient();
 
         _baseUri = $"{BaseGorzdravUrl}/{BaseGorzdravApiUrn}";
     }
