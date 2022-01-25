@@ -22,7 +22,7 @@ jobs:
 
     - name: Configure OS (if Linux)
       if: runner.os == 'Linux'
-      run: sed -i 's/TLSv1.2/TLSv1.0/g' /etc/ssl/openssl.cnf
+      run: sudo sed -i 's/TLSv1.2/TLSv1.0/g' /etc/ssl/openssl.cnf
       shell: bash
 
     - name: Setup .NET ${{ matrix.dotnet-version }}
