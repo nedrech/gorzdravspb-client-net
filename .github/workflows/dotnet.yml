@@ -8,18 +8,25 @@ on:
 
 jobs:
   build:
-
-    runs-on: windows-latest
-
+    runs-on: [ windows-latest, ubuntu-latest ]
     steps:
     - uses: actions/checkout@v2
+
+    - name: Configure OS
+      if: runner.os == 'Linux'
+      run: sed -i 's/TLSv1.2/TLSv1.0/g' /etc/ssl/openssl.cnf
+      shell: bash
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
+
     - name: Restore dependencies
       run: dotnet restore
+
     - name: Build
       run: dotnet build --no-restore
+
     - name: Test
       run: dotnet test --no-build --verbosity normal
