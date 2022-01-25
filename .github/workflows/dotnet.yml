@@ -2,9 +2,11 @@ name: .NET
 
 on:
   push:
-    branches: [ feature/actions ]
   pull_request:
     branches: [ master ]
+    paths:
+    - '**.cs'
+    - '**.csproj'
 
 jobs:
   build:
