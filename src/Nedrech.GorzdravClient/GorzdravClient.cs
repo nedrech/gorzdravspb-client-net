@@ -45,7 +45,6 @@ public class GorzdravClient
     /// <param name="cancellationToken">Токен отмены действия <see cref="CancellationToken" />.</param>
     /// <typeparam name="TResult">Результат, в котором ошидает ответ.</typeparam>
     /// <returns>Результат типа <see cref="TResult"/>.</returns>
-    /// <exception cref="HttpRequestException"></exception>
     /// <exception cref="ApiRequestException"></exception>
     public async Task<TResult> MakeRequestAsync<TResult>(RequestBase request,
         CancellationToken cancellationToken = default)
@@ -62,6 +61,8 @@ public class GorzdravClient
         {
             httpResponse = await _httpClient.SendAsync(httpRequest, cancellationToken)
                 .ConfigureAwait(false);
+
+            httpResponse.EnsureSuccessStatusCode();
         }
         catch (TaskCanceledException e)
         {
@@ -70,8 +71,10 @@ public class GorzdravClient
 
             throw new ApiRequestException("Request timed out.", e);
         }
-
-        httpResponse.EnsureSuccessStatusCode();
+        catch (HttpRequestException e)
+        {
+            throw new ApiRequestException("HTTP error, see inner.", e);
+        }
 
         var apiResponse =
             await httpResponse.Content.ReadFromJsonAsync<ApiResponse<TResult>>(cancellationToken: cancellationToken)
