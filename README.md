@@ -20,9 +20,11 @@ foreach(var clinic in centralClinics)
                                                              // "[1]: clinic short name"
 ```
 
-## Поддерживаемые платформы
+## Минимально поддерживаемые платформы
 
-Пока что только <b>.NET 6</b>.
+![](https://img.shields.io/badge/.NET-6-brightgreen?style=flat-square)
+![](https://img.shields.io/badge/.NET%20Standard-2.1-brightgreen?style=flat-square)
+![](https://img.shields.io/badge/.NET%20Framework-4.6.2-brightgreen?style=flat-square)
 
 ## Дорожная карта
 
