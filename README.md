@@ -22,7 +22,9 @@ foreach(var clinic in centralClinics)
 
 ## Поддерживаемые платформы
 
-Пока что только <b>.NET 6</b>.
+.NET 6 (без зависимостей)
+.NET Framework >= 4.6.2
+.NET Standard >= 2.1
 
 ## Дорожная карта
 
