@@ -20,8 +20,18 @@ foreach(var clinic in centralClinics)
                                                              // "[1]: clinic short name"
 ```
 
-## Минимально поддерживаемые платформы
+## Минимальные требования
+### TLS
+![](https://img.shields.io/badge/TLS-1.0-red?style=flat-square) </br>
+Из-за устаревшего протокола на стороне сервера, библиотека будет работать только на машинах,
+где минимально разрешенная версия TLS - 1.0. На текущий момент Windows разрешает
+использовать устаревшую версию при соединении.</br>
+При деплойе в Docker на Linux можно попробовать добавить в Dockerfile следующую строчку:
+```dockerfile
+RUN sudo sed -i 's/TLSv1.2/TLSv1.0/g' /etc/ssl/openssl.cnf
+```
 
+### Платформы
 ![](https://img.shields.io/badge/.NET%20Standard-2.0-brightgreen?style=flat-square)
 ![](https://img.shields.io/badge/.NET%20Standard-2.1-brightgreen?style=flat-square)
 
