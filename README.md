@@ -22,9 +22,8 @@ foreach(var clinic in centralClinics)
 
 ## Минимально поддерживаемые платформы
 
-![](https://img.shields.io/badge/.NET-6-brightgreen?style=flat-square)
+![](https://img.shields.io/badge/.NET%20Standard-2.0-brightgreen?style=flat-square)
 ![](https://img.shields.io/badge/.NET%20Standard-2.1-brightgreen?style=flat-square)
-![](https://img.shields.io/badge/.NET%20Framework-4.6.2-brightgreen?style=flat-square)
 
 ## Дорожная карта
 
